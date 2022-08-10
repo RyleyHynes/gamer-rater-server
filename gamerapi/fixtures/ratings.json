@@ -1,0 +1,16 @@
+[
+    {
+        "model": "gamerapi.rating",
+        "pk": 1,
+        "fields": {
+            "rating": 5
+        }
+    },
+    {
+        "model": "gamerapi.rating",
+        "pk": 2,
+        "fields": {
+            "rating": 10
+        }
+    }
+]

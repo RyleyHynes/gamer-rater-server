@@ -5,8 +5,9 @@ from django.db import models
 
 class Review(models.Model):
     # Step 2: Add any field on ERD
-    game = models.ForeignKey(
-        "Game", on_delete=models.CASCADE, related_name="reviews")
-    player = models.ForeignKey(
-        "Player", on_delete=models.CASCADE, related_name="reviews")
     review = models.CharField(max_length=300)
+    # On reviews there is now a list of reviews that this game is on
+    game = models.ForeignKey("Game", on_delete=models.CASCADE, related_name="reviews")
+    # On reviews there is now a list of reviews that this player is on
+    player = models.ForeignKey("Player", on_delete=models.CASCADE, related_name="reviews")
+

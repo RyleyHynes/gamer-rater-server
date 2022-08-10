@@ -1,0 +1,59 @@
+[
+    {
+        "model": "gamerapi.game",
+        "pk": 1,
+        "fields": {
+            "title":"Uno",
+            "description": "Person who gets rid of all their cards wins.",
+            "designer": "Mattel, Inc",
+            "year_released": 1971,
+            "number_of_players": 10,
+            "estimated_time_to_play": 1,
+            "age_recommendation": 5,
+            "player": 1
+        }
+    },
+    {
+        "model": "gamerapi.game",
+        "pk": 2,
+        "fields": {
+            "title":"Call of Duty",
+            "description": "Play Solider",
+            "designer": "Activision",
+            "year_released": 2010,
+            "number_of_players": 2,
+            "estimated_time_to_play": 1,
+            "age_recommendation": 10,
+            "player": 1
+        }
+    },
+    {
+        "model": "gamerapi.game",
+        "pk": 3,
+        "fields": {
+            "title":"Jenga",
+            "description": "Dont let the block tower fall",
+            "designer": "Hasbro",
+            "year_released": 1998,
+            "number_of_players": 10,
+            "estimated_time_to_play": 1,
+            "age_recommendation": 5,
+            "player": 1
+        }
+    },
+    {
+        "model": "gamerapi.game",
+        "pk": 4,
+        "fields": {
+            "title":"War",
+            "description": "Collect as many cards as possible",
+            "designer": "Made Up",
+            "year_released": 1972,
+            "number_of_players": 4,
+            "estimated_time_to_play": 1,
+            "age_recommendation": 5,
+            "player": 1
+        }
+    }
+
+]
