@@ -3,11 +3,14 @@ from django.conf.urls import include
 from django.urls import path
 from rest_framework import routers
 from gamerapi.views import register_user, login_user
+from gamerapi.views.category import CategoryView
 from gamerapi.views.game import GameView
 
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'games', GameView, 'game')
+router.register(r'categories', CategoryView, 'category')
+
 
 urlpatterns = [
     # Requests to http://localhost:8000/register will be routed to the register_user function

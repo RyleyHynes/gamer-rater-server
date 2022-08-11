@@ -3,6 +3,7 @@ from gamerapi.models import Player
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
+from django.http import HttpResponseServerError
 
 
 class GameView(ViewSet):
@@ -28,11 +29,10 @@ class GameView(ViewSet):
             """
         # New variable games, gets a list of all the game objects returned to it
         games = Game.objects.all()
-
         # Then the data from games is passed to the serializer and stored in serializer,
         # many=True is added so that is known it is a list
         serializer = GameSerializer(games, many=True)
-        # Then the data is stored in serializer is returned in JSON format
+        # Then the data is stored in serializer and is returned in JSON format
         return Response(serializer.data)
 
     def retrieve(self, request, pk):
@@ -98,7 +98,7 @@ class GameSerializer(serializers.ModelSerializer):
         """Meta is the inner class of the model class, it is used to change the behavior
         of your model fields
         
-        The Meta class hold the configuration for the serializer. We’re telling the serializer to use the Game model and to include all of its fields."""
+        The Meta class holds the configuration for the serializer. We’re telling the serializer to use the Game model and to include all of its fields."""
         model = Game
         fields = ('id', 'title', 'description', 'designer', 'year_released', 'number_of_players',
                   'estimated_time_to_play', 'age_recommendation', 'player', 'category')
