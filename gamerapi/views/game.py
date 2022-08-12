@@ -1,5 +1,4 @@
-from gamerapi.models import Game
-from gamerapi.models import Player
+from gamerapi.models import Game, Player, Category
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
@@ -80,7 +79,7 @@ class GameView(ViewSet):
             age_recommendation=request.data["age_recommendation"],
             player=player
         )
-        game.category.add(request.data["category"])
+        game.categories.add(request.data["category"])
         serializer = GameSerializer(game)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
@@ -101,5 +100,5 @@ class GameSerializer(serializers.ModelSerializer):
         The Meta class holds the configuration for the serializer. We’re telling the serializer to use the Game model and to include all of its fields."""
         model = Game
         fields = ('id', 'title', 'description', 'designer', 'year_released', 'number_of_players',
-                  'estimated_time_to_play', 'age_recommendation', 'player', 'category')
+                  'estimated_time_to_play', 'age_recommendation', 'player', 'categories')
         depth = 1

@@ -1,5 +1,5 @@
 from .category import Category
-from .game_category import Game_Category
+from .game_category import GameCategories
 from .game import Game
 from .picture import Picture
 from .player import Player

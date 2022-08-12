@@ -8,6 +8,7 @@ from gamerapi.views.game import GameView
 
 
 router = routers.DefaultRouter(trailing_slash=False)
+# Left string is for error handling, right string is for the route (I am naming these, what really matters is the View)
 router.register(r'games', GameView, 'game')
 router.register(r'categories', CategoryView, 'category')
 

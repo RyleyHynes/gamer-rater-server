@@ -10,7 +10,8 @@
             "number_of_players": 10,
             "estimated_time_to_play": 1,
             "age_recommendation": 5,
-            "player": 1
+            "player": 1,
+            "categories": [3,4,5]
         }
     },
     {
@@ -24,7 +25,8 @@
             "number_of_players": 2,
             "estimated_time_to_play": 1,
             "age_recommendation": 10,
-            "player": 1
+            "player": 1,
+            "categories": [7,8,9]
         }
     },
     {
@@ -38,7 +40,8 @@
             "number_of_players": 10,
             "estimated_time_to_play": 1,
             "age_recommendation": 5,
-            "player": 1
+            "player": 1,
+            "categories": [2,5,7]
         }
     },
     {
@@ -52,7 +55,8 @@
             "number_of_players": 4,
             "estimated_time_to_play": 1,
             "age_recommendation": 5,
-            "player": 1
+            "player": 1,
+            "categories": [1,2,3]
         }
     }
 

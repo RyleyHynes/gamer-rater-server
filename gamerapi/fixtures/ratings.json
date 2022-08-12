@@ -3,6 +3,8 @@
         "model": "gamerapi.rating",
         "pk": 1,
         "fields": {
+            "game_id": 1,
+            "player_id": 1,
             "rating": 5
         }
     },
@@ -10,6 +12,8 @@
         "model": "gamerapi.rating",
         "pk": 2,
         "fields": {
+            "game_id": 1,
+            "player_id": 1,
             "rating": 10
         }
     }

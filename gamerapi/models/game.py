@@ -1,6 +1,6 @@
 from django.db import models
 
-from gamerapi.models.game_category import Game_Category
+from gamerapi.models.game_category import GameCategories
 # Step 1: Name the model and inherit from the django Model class
 
 
@@ -16,4 +16,4 @@ class Game(models.Model):
     # On games there is now a list of games that this players on
     player = models.ForeignKey("Player", on_delete=models.CASCADE, related_name="games")
     # On games there is now a list of games that this category is on
-    category = models.ManyToManyField("Category", through=Game_Category, related_name="games")
+    categories = models.ManyToManyField("Category", through=GameCategories, related_name="games")
