@@ -5,12 +5,14 @@ from rest_framework import routers
 from gamerapi.views import register_user, login_user
 from gamerapi.views.category import CategoryView
 from gamerapi.views.game import GameView
+from gamerapi.views.gamereview import GameReviewView
 
 
 router = routers.DefaultRouter(trailing_slash=False)
 # Left string is for error handling, right string is for the route (I am naming these, what really matters is the View)
 router.register(r'games', GameView, 'game')
 router.register(r'categories', CategoryView, 'category')
+router.register(r'reviews', GameReviewView, 'review')
 
 
 urlpatterns = [

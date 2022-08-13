@@ -4,8 +4,8 @@
         "pk": 1,
         "fields": {
             "review": "Hey man this game is great!",
-            "player": 1,
-            "game": 1
+            "player_id": 1,
+            "game_id": 1
         }
     },
     {
@@ -13,8 +13,8 @@
         "pk": 2,
         "fields": {
             "review": "Hey man this game is not fun!",
-            "player": 1,
-            "game": 2
+            "player_id": 1,
+            "game_id": 2
         }
     }
 ]

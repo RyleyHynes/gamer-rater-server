@@ -5,6 +5,28 @@ from rest_framework import serializers, status
 from django.http import HttpResponseServerError
 
 
+class GameSerializer(serializers.ModelSerializer):
+    """JSON serializer for games
+    Args:
+        The serializer class determines how the Python data should be serialized to be sent back to the client.
+
+        serializers (class): the serializer class which gives you a powerful, generic way to control the 
+        output of your responses. ModelSerializer class which provides a useful shortcut
+        for creating serializers that deal with model instances and querysets.
+    """
+    class Meta:
+        """Meta is the inner class of the model class, it is used to change 
+        the behavior of your model fields
+
+        The Meta class holds the configuration for the serializer. We’re 
+        telling the serializer to use the Game model and to include all of 
+        its fields."""
+        model = Game
+        fields = ('id', 'title', 'description', 'designer', 'year_released', 'number_of_players',
+                  'estimated_time_to_play', 'age_recommendation', 'player', 'categories')
+        depth = 1
+
+
 class GameView(ViewSet):
     """Gamer Rater Games View
 
@@ -27,12 +49,12 @@ class GameView(ViewSet):
             Response -- JSON serialized list of games
             """
         # New variable games, gets a list of all the game objects returned to it
-        games = Game.objects.all()
+        games = Game.objects.all().order_by("title")
         # Then the data from games is passed to the serializer and stored in serializer,
         # many=True is added so that is known it is a list
         serializer = GameSerializer(games, many=True)
         # Then the data is stored in serializer and is returned in JSON format
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     def retrieve(self, request, pk):
         """ Handles the GET request for a single game. If one is not found
@@ -49,7 +71,7 @@ class GameView(ViewSet):
             combines what we were doing with the _set_headers and wfile.write functions.
         """
         try:
-            # Matching the recieved primary key to the list of games primary keys
+            # Matching the received primary key to the list of games primary keys
             game = Game.objects.get(pk=pk)
             serializer = GameSerializer(game)
             return Response(serializer.data, status=status.HTTP_200_OK)
@@ -83,22 +105,37 @@ class GameView(ViewSet):
         serializer = GameSerializer(game)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
+    def update(self, request, pk):
+        """Handles PUT requests for the game, only the maker can edit
 
-class GameSerializer(serializers.ModelSerializer):
-    """JSON serializer for games
-    Args:
-        The serializer class determines how the Python data should be serialized to be sent back to the client.
-        
-        serializers (class): the serializer class which gives you a powerful, generic way to control the 
-        output of your responses. ModelSerializer class which provides a useful shortcut
-        for creating serializers that deal with model instances and querysets.
-    """
-    class Meta:
-        """Meta is the inner class of the model class, it is used to change the behavior
-        of your model fields
-        
-        The Meta class holds the configuration for the serializer. We’re telling the serializer to use the Game model and to include all of its fields."""
-        model = Game
-        fields = ('id', 'title', 'description', 'designer', 'year_released', 'number_of_players',
-                  'estimated_time_to_play', 'age_recommendation', 'player', 'categories')
-        depth = 1
+        Returns:
+            Response: Empty body with a 204 status code.
+            """
+
+        # getting the game by its primary key
+        game = Game.objects.get(pk=pk)
+        # Setting the fields to the values coming in
+        game.title = request.data["title"],
+        game.description = request.data["description"],
+        game.designer = request.data["designer"],
+        game.year_released = request.data["year_released"],
+        game.number_of_players = request.data["number_of_players"],
+        game.estimated_time_to_play = request.data["estimated_time_to_play"],
+        game.age_recommendation = request.data["age_recommendation"]
+
+        # Saving selections
+        game.save()
+        # Assuming since the categories are many to many that they have to be cleared out
+        # prior to saving again
+        game.categories.clear()
+        game.categories.add(request.data["category"])
+
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+
+        def destroy(self, request, pk):
+            """Handles the delete requests for a game
+            """
+            # finding the game form the pk received
+            game = Game.objects.get(pk=pk)
+            game.delete()
+            return Response(None, status=status.HTTP_204_NO_CONTENT)
