@@ -115,12 +115,12 @@ class GameView(ViewSet):
         # getting the game by its primary key
         game = Game.objects.get(pk=pk)
         # Setting the fields to the values coming in
-        game.title = request.data["title"],
-        game.description = request.data["description"],
-        game.designer = request.data["designer"],
-        game.year_released = request.data["year_released"],
-        game.number_of_players = request.data["number_of_players"],
-        game.estimated_time_to_play = request.data["estimated_time_to_play"],
+        game.title = request.data["title"]
+        game.description = request.data["description"]
+        game.designer = request.data["designer"]
+        game.year_released = request.data["year_released"]
+        game.number_of_players = request.data["number_of_players"]
+        game.estimated_time_to_play = request.data["estimated_time_to_play"]
         game.age_recommendation = request.data["age_recommendation"]
 
         # Saving selections
@@ -132,10 +132,10 @@ class GameView(ViewSet):
 
         return Response(None, status=status.HTTP_204_NO_CONTENT)
 
-        def destroy(self, request, pk):
-            """Handles the delete requests for a game
-            """
-            # finding the game form the pk received
-            game = Game.objects.get(pk=pk)
-            game.delete()
-            return Response(None, status=status.HTTP_204_NO_CONTENT)
+    def destroy(self, request, pk):
+        """Handles the delete requests for a game
+        """
+        # finding the game form the pk received
+        game = Game.objects.get(pk=pk)
+        game.delete()
+        return Response(None, status=status.HTTP_204_NO_CONTENT)

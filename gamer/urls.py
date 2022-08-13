@@ -6,6 +6,8 @@ from gamerapi.views import register_user, login_user
 from gamerapi.views.category import CategoryView
 from gamerapi.views.game import GameView
 from gamerapi.views.gamereview import GameReviewView
+from gamerapi.views.picture import PictureView
+from gamerapi.views.rating import RatingView
 
 
 router = routers.DefaultRouter(trailing_slash=False)
@@ -13,6 +15,8 @@ router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'games', GameView, 'game')
 router.register(r'categories', CategoryView, 'category')
 router.register(r'reviews', GameReviewView, 'review')
+router.register(r'ratings', RatingView, 'ratings')
+router.register(r'pictures', PictureView, 'picture')
 
 
 urlpatterns = [

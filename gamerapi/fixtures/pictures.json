@@ -4,8 +4,8 @@
         "pk": 1,
         "fields": {
             "picture_url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/UNO_Logo.svg",
-            "game": 1,
-            "player": 1
+            "game_id": 1,
+            "player_id": 1
         }
     },
     {
@@ -13,8 +13,8 @@
         "pk": 2,
         "fields": {
             "picture_url": "https://cdn.akamai.steamstatic.com/steam/apps/42700/capsule_616x353.jpg?t=1646763435",
-            "game": 2,
-            "player": 1
+            "game_id": 2,
+            "player_id": 1
         }
     },
     {
@@ -22,8 +22,8 @@
         "pk": 3,
         "fields": {
             "picture_url": "https://cdn2.bigcommerce.com/server1800/b23d9/products/42/images/352/2021_12_26_FAMILYBLOCKS_MEDIUM___28134.1640572986.1280.1280.png?c=2",
-            "game": 3,
-            "player": 1
+            "game_id": 3,
+            "player_id": 1
         }
     },
     {
@@ -31,8 +31,8 @@
         "pk": 4,
         "fields": {
             "picture_url": "https://bargames101.com/wp-content/uploads/2020/08/How-to-Play-War-Card-Game-2.jpg",
-            "game": 4,
-            "player": 1
+            "game_id": 4,
+            "player_id": 1
         }
     }
 ]
