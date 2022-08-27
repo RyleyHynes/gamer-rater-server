@@ -1,6 +1,6 @@
 from django.db import models
 
-from gamerapi.models.game_category import GameCategories
+from gamerapi.models.game_categories import GameCategories
 # Step 1: Name the model and inherit from the django Model class
 
 

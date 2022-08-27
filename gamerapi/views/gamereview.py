@@ -82,4 +82,18 @@ class GameReviewView(ViewSet):
             player=player
         )
         serializer = GameReviewSerializer(review)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    def update(self, request, pk):
+        """Handles PUT requests for the review, only the maker can edit
+
+        Returns:
+            Response: Empty body with a 204 status code.
+            """
+
+        # getting the game by its primary key
+        review = Review.objects.get(pk=pk)
+        # Setting the fields to the values coming in
+        review.review = request.data["review"]
+        # Saving selections
+        return Response(None, status=status.HTTP_204_NO_CONTENT)

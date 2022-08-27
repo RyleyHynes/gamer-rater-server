@@ -44,6 +44,20 @@ class RatingView(ViewSet):
         serializer = RatingSerializer(rating)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
+    def update(self, request, pk):
+        """Handles PUT requests for the rating, only the maker can edit
+
+        Returns:
+            Response: Empty body with a 204 status code.
+            """
+
+        # getting the game by its primary key
+        rating = Rating.objects.get(pk=pk)
+        # Setting the fields to the values coming in
+        rating.rating = request.data["rating"]
+        # Saving selections
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+
 
 class RatingSerializer(serializers.ModelSerializer):
     """JSON serializer for rating
