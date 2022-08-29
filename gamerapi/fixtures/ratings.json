@@ -5,16 +5,52 @@
         "fields": {
             "game_id": 1,
             "player_id": 1,
-            "rating": 5
+            "rating": 4
         }
     },
     {
         "model": "gamerapi.rating",
         "pk": 2,
         "fields": {
-            "game_id": 1,
+            "game_id": 2,
+            "player_id": 1,
+            "rating": 1
+        }
+    },
+    {
+        "model": "gamerapi.rating",
+        "pk": 3,
+        "fields": {
+            "game_id": 3,
             "player_id": 1,
             "rating": 10
+        }
+    },
+    {
+        "model": "gamerapi.rating",
+        "pk": 4,
+        "fields": {
+            "game_id": 4,
+            "player_id": 1,
+            "rating": 7
+        }
+    },
+    {
+        "model": "gamerapi.rating",
+        "pk": 5,
+        "fields": {
+            "game_id": 5,
+            "player_id": 1,
+            "rating": 8
+        }
+    },
+    {
+        "model": "gamerapi.rating",
+        "pk": 6,
+        "fields": {
+            "game_id": 6,
+            "player_id": 1,
+            "rating": 6
         }
     }
 ]

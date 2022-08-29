@@ -2,7 +2,7 @@ from rest_framework import status
 from rest_framework.test import APITestCase
 from rest_framework.authtoken.models import Token
 
-from gamerapi.models import Review, Player, review
+from gamerapi.models import Review, Player
 from gamerapi.views.gamereview import GameReviewSerializer
 
 class ReviewTests(APITestCase):
