@@ -14,7 +14,7 @@
         "fields": {
             "review": "Hey man this game is not fun!",
             "player_id": 1,
-            "game_id": 1
+            "game_id": 3
         }
     }
 ]
